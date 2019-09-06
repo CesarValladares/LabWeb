@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <title>
+                Practica 1 introduccion a react
+            </title>
+            <script src="https://unpkg.com/react@16/umd/react.development.js">
+            </script>
+            <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+            </script>
+            <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js">
+            </script>
+            <style>
+                .class1{
+                    font-size: 40px;
+                    color:blue;
+                }
+                .class2{
+                    font-size: 40px;
+                    color: crimson;
+                }
+            </style>
+        </meta>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script type="text/babel">
+            var destino = document.querySelector('#container')
+            class Vocal extends React.Component{
+                render(){
+                    var estilo = {
+                        padding: 10,      
+                        margin: 10,      
+                        backgroundColor: this.props.bgcolor,    
+                        color: "#333",      
+                        display: "inline-block",      
+                        fontFamily: "monospace",      
+                        fontSize: 32,      
+                        textAlign: "center"
+                    }
+
+                    const numero = this.props.numero
+
+                    return(
+                        <React.Fragment>
+                        <p className={this.props.numero== "2" ? 'class1' : 'class2' }> Hola </p>
+                            <div style={estilo}>
+                                {this.props.children}
+                            </div>
+                        </React.Fragment>
+                    )
+                }
+            }
+
+            ReactDOM.render(
+                <React.Fragment>
+                    <Vocal bgcolor="#58B3FF" numero={"2"}>A</Vocal>
+                    <Vocal bgcolor="#FFB3FF">E</Vocal>
+                    <Vocal bgcolor="#58A335">I</Vocal>
+                    <Vocal bgcolor="#CEBFFF">O</Vocal>
+                    <Vocal bgcolor="#58B3FF">U</Vocal>
+                </React.Fragment>
+            , destino)
+
+        </script>
+    </body>
+</html>
